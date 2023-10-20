@@ -1,4 +1,4 @@
-#include <mai.h>
+#include "main.h"
 
 /**
  * string_toupper - it changes all
