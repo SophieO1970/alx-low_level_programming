@@ -8,7 +8,6 @@
  */
 void print_number(int n)
 {
-	unsigned int reversed;
 
 	if (n < 0)
 	{
@@ -16,11 +15,10 @@ void print_number(int n)
 		n = -n;
 	}
 
-	reversed = n;
+	if (n / 10)
 
-	if (reversed / 10)
 	{
-		print_number(reversed / 10);
+		print_number(n  / 10);
 	}
 
 	_putchar('0' + (n % 10));
