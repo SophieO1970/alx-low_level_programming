@@ -13,7 +13,7 @@ void print_number(int n)
 	if (n < 0)
 	{
 		_putchar('-');
-		n *= -n;
+		n = -n;
 	}
 
 	reversed = n;
@@ -23,5 +23,5 @@ void print_number(int n)
 		print_number(reversed / 10);
 	}
 
-	_putchar('0' + (reversed % 10));
+	_putchar('0' + (n % 10));
 }
