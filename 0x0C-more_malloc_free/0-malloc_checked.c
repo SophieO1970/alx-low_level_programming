@@ -21,6 +21,7 @@ void *malloc_checked(unsigned int b)
 	else
 	{
 		return (p);
+		int *var - name = malloc(...)
 	}
 }
 
