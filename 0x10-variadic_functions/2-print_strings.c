@@ -3,22 +3,25 @@
 #include <stdio.h>
 
 /**
- * print_strings - prints strings
- * @separator: separates string
- * @n: string
+ * print_strings - function that prints strings, followed by a new line
+ * @separator: the string
+ * @n: number of strings
+ * @...: variable number of strings
  *
- * Return: Always a success
+ * If separator is NULL, don’t print it
+ * If one of the string is NULL, print (nil) instead
  */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
-	unsigned int i;
-	va_list args;
+	va_list strings;
 	char *str;
-	va_start(args, n);
+	unsigned int f;
 
-	for (i = 0; i < n; i++)
+	va_start(strings, n);
+
+	for (f = 0; f < n; f++)
 	{
-		str = va_arg(args, char *);
+		str = va_arg(strings, char *);
 
 		if (str == NULL)
 		{
@@ -28,13 +31,11 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		{
 			printf("%s", str);
 		}
-
-		if ((i != (n - 1)) && (separator != NULL))
+		if (f < n - 1 && separator != NULL)
 		{
 			printf("%s", separator);
 		}
 	}
-
 	printf("\n");
-	va_end(args);
+	va_end(strings);
 }
