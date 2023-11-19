@@ -7,10 +7,12 @@
  *
  * Return: String length
  */
-int str_length(const char *str) 
+int str_length(const char *str)
 {
 	int len = 0;
+
 	while (str[len] != '\0')
+
 	{
 		len++;
 	}
@@ -24,10 +26,12 @@ int str_length(const char *str)
  *
  * Return: 1 or 0
  */
-int is_all_digits(const char *str) 
+int is_all_digits(const char *str)
 {
 	int i, len = str_length(str);
+
 	for (i = 0; i < len; i++)
+
 	{
 		if (str[i] < '0' || str[i] > '9')
 		{
@@ -51,12 +55,14 @@ void multiply(const char *num1, const char *num2)
 	int len2 = str_length(num2);
 	int result_len = len1 + len2;
 	char *result;
+
 	if (!is_all_digits(num1) || !is_all_digits(num2))
+
 	{
 		exit(98);
 	}
 	result = malloc(result_len + 1);
-	if (result == NULL) 
+	if (result == NULL)
 	{
 		exit(98);
 	}
@@ -69,13 +75,13 @@ void multiply(const char *num1, const char *num2)
 	{
 		for (j = len2 - 1; j >= 0; j--)
 		{
-			product = (num1[i] - '0') * (num2[j] - '0') + (result[i + j + 1] - '0') + carry;
+          product = (num1[i] - '0') * (num2[j] - '0') + (result[i + j + 1] - '0') + carry;
 			carry = product / 10;
 			result[i + j + 1] = (product % 10) + '0';
 		}
 		result[i] += carry;
 	}
-	while (start < result_len && result[start] == '0') 
+	while (start < result_len && result[start] == '0')
 	{
 		start++;
 	}
